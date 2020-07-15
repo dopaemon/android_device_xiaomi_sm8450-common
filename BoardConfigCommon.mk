@@ -194,6 +194,9 @@ TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/wlan/qcacld-3.0/.qca6490 \
 	qcom/opensource/wlan/qcacld-3.0/.qca6750
 
+# Allow LZ4 compression
+BOARD_RAMDISK_USE_LZ4 := true
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
