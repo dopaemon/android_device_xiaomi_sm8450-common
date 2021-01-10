@@ -536,3 +536,7 @@ PRODUCT_PACKAGES += \
     firmware_qca6490_wlan_mac.bin_symlink \
     firmware_qca6750_WCNSS_qcom_cfg.ini_symlink \
     firmware_qca6750_wlan_mac.bin_symlink
+
+# System Properties
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    debug.fdsan=warn_once
