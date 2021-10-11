@@ -188,6 +188,7 @@
         <!-- DC dimming settings -->
         <activity
             android:name=".display.DcDimmingSettingsActivity"
+            android:exported="true"
             android:label="@string/dc_dimming_enable_title"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
