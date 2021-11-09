@@ -211,6 +211,8 @@ $(foreach p, $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
     $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600) \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
+# Compression
+PRODUCT_FS_COMPRESSION := 1
 BOARD_EROFS_COMPRESSOR := lz4hc,9
 BOARD_EROFS_PCLUSTER_SIZE := 65536
 
