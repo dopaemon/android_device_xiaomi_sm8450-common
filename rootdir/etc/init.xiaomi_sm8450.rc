@@ -102,6 +102,9 @@ on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
