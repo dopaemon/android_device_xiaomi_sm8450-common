@@ -113,6 +113,7 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
+    loop.max_part=8 \
     androidboot.usbcontroller=a600000.dwc3
 
 # Kernel modules
