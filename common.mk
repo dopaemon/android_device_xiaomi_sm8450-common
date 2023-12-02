@@ -345,6 +345,7 @@ $(foreach sku_out, $(TARGET_COPY_OUT_NFC_SKU_PERMISSIONS), \
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
+    CertifiedPropsOverlay \
     FrameworksResCommon \
     SettingsResCommon \
     SystemUIResCommon \
