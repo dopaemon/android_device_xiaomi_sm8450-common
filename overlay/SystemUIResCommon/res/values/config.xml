@@ -21,4 +21,8 @@
 
     <!-- Whether to play turbulence noise after clicking the play button -->
     <bool name="config_turbulenceNoise">false</bool>
+
+    <!-- Preferred refresh rate at keyguard, if supported by the display. Overrides
+          keyguardMaxRefreshRate. -->
+    <integer name="config_keyguardRefreshRate">60</integer>
 </resources>
