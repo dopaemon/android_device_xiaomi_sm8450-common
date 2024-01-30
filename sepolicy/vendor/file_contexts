@@ -120,6 +120,9 @@
 # Ril
 /dev/smd8                                         u:object_r:vendor_radio_smd_device:s0
 
+# Perfmgr
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service\.xiaomi-libperfmgr    u:object_r:hal_power_default_exec:s0
+
 # Sensors
 /dev/elliptic[0-9]                                 u:object_r:sensors_device:s0
 /dev/mius(.*)?                                     u:object_r:sensors_device:s0

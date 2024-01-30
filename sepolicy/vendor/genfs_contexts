@@ -4,6 +4,13 @@ genfscon proc /last_kmsg                                         u:object_r:proc
 # Leds
 genfscon sysfs /devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-1]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,leds@d000/leds(/.*)? u:object_r:sysfs_leds:s0
 
+# Graphics
+genfscon sysfs /devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-    u:object_r:vendor_sysfs_sde_crtc:s0
+
+# Perfmgr
+genfscon proc /sys/kernel/sched_energy_aware                         u:object_r:proc_sched:s0
+genfscon sysfs /devices/platform/soc/1d84000.ufshc/clkgate_enable    u:object_r:vendor_sysfs_scsi_host:s0
+
 # Memory
 genfscon sysfs /devices/virtual/mi_memory/mi_memory_device/ufshcd0 u:object_r:vendor_sysfs_memory:s0
 genfscon sysfs /devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0 u:object_r:vendor_sysfs_memory:s0

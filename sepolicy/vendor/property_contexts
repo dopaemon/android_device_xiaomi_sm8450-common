@@ -18,6 +18,9 @@ vendor.vidhance.video.vs.cropfactor             u:object_r:vendor_camera_prop:s0
 persist.vendor.btstack.                         u:object_r:vendor_bluetooth_prop:s0
 persist.vendor.bt.                              u:object_r:vendor_bluetooth_prop:s0
 
+# Power
+vendor.powerhal.                                u:object_r:vendor_powerhal_prop:s0
+
 # Displayfeature
 init.svc.vendor.displayfeature-hal-1-0          u:object_r:vendor_displayfeature_prop:s0
 persist.vendor.dc_backlight.enable              u:object_r:vendor_displayfeature_prop:s0

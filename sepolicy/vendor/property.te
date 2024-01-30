@@ -32,3 +32,9 @@ vendor_public_prop(vendor_fp_prop)
 # GNSS
 vendor_public_prop(vendor_edgnss_qxwz_downloadak_prop)
 vendor_public_prop(vendor_mi_ins_prop)
+
+# Panel
+vendor_public_prop(vendor_panel_info_prop)
+
+# Power
+vendor_internal_prop(vendor_powerhal_prop)
