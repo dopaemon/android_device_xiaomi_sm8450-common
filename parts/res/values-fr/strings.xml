@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+     <!-- Dirac settings -->
+     <string name="dirac_enable">Activer dirac</string>
+     <string name="dirac_title">Son Dirac™</string>
+     <string name="dirac_summary">Optimiser la qualité audio</string>
+     <string name="dirac_headset_title">Choisissez le type d\'écouteur</string>
+     <string name="dirac_preset_title">Choisissez un préréglage</string>
+     <string name="dirac_hifi_enable_title">Activer la chaîne Hi-Fi</string>
+     <string name="dirac_hifi_title">Hi-Fi</string>
+     <string name="dirac_hifi_summary">Réduire le bruit et la distorsion et augmenter la qualité audio</string>
+
+     <!-- Dirac settings: Headset types -->
+     <string name="dirac_headset_default">Par défaut</string>
+     <string name="dirac_headset_earbuds">Écouteurs Mi</string>
+     <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
+     <string name="dirac_headset_piston_1">Mi Piston-1</string>
+     <string name="dirac_headset_general">Général</string>
+     <string name="dirac_headset_general_inear">Intra-auriculaire général</string>
+     <string name="dirac_headset_piston_basic">Édition de base</string>
+     <string name="dirac_headset_piston_2">Mi Piston-2</string>
+     <string name="dirac_headset_piston_standard">Édition Standard</string>
+     <string name="dirac_headset_headphone">Écouteurs Mi</string>
+     <string name="dirac_headset_piston_youth">Édition jeunesse</string>
+     <string name="dirac_headset_piston_color">Édition couleur</string>
+     <string name="dirac_headset_in_ear">Mi In-Ear</string>
+     <string name="dirac_headset_capsule">Mi Capsule</string>
+     <string name="dirac_headset_in_ear_pro">Mi In-Ear Pro</string>
+     <string name="dirac_headset_comfort">Mi Confort</string>
+     <string name="dirac_headset_reduction_noise">Mi Noise Cancelling Type-C</string>
+     <string name="dirac_headset_cancelling">Mi Noise Cancelling 3,5 mm</string>
+     <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+     <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+     <string name="dirac_headset_earphone_basic">Écouteurs Mi Basic</string>
+     <string name="dirac_headset_earphone">Écouteurs Mi</string>
+     <string name="dirac_headset_ear_four">Écouteurs Mi Quadruple Driver</string>
+     <string name="dirac_headset_piston_typec">Écouteurs intra-auriculaires Mi (Type-C)</string>
+     <string name="dirac_headset_bluetooth_collar">Tour de cou Bluetooth Mi</string>
+     <string name="dirac_headset_bluetooth_linefree">Écouteurs Bluetooth Mi</string>
+     <string name="dirac_headset_redmi_earphones">Écouteurs Redmi</string>
+     <string name="dirac_headset_dual_driver_in_ear">Écouteurs intra-auriculaires Mi Dual Driver</string>
+
+     <!-- Dirac settings: Equalizer presets -->
+     <string name="dirac_preset_default">Par défaut</string>
+     <string name="dirac_preset_rock">Rocher</string>
+     <string name="dirac_preset_jazz">Jazz</string>
+     <string name="dirac_preset_pop">Pop</string>
+     <string name="dirac_preset_classical">Classique</string>
+     <string name="dirac_preset_hiphop">HipHop</string>
+     <string name="dirac_preset_blues">Bleus</string>
+     <string name="dirac_preset_electronic">Électronique</string>
+     <string name="dirac_preset_country">Pays</string>
+     <string name="dirac_preset_dance">Danse</string>
+     <string name="dirac_preset_metal">Métal</string>
+     <string name="dirac_preset_bass_booster">Amplificateur de basses</string>
+     <string name="dirac_preset_live">En direct</string>
+     <string name="dirac_preset_balanced">Équilibré</string>
+     <string name="dirac_preset_bass_reduction">Réduction des basses</string>
+     <string name="dirac_preset_treble_reduction">Réduction des aigus</string>
+     <string name="dirac_preset_soft_bass">Basses douces</string>
+     <string name="dirac_preset_soft_treble">Aigus doux</string>
+
+     <!-- Dirac settings: Sound Scenes -->
+     <string name="music_headset_scenario_select">Choisir une scène</string>
+     <string name="music_headset_scenario_intelligent">Intelligent</string>
+     <string name="music_headset_scenario_music">Musique</string>
+     <string name="music_headset_scenario_video">Vidéo</string>
+     <string name="music_headset_scenario_vocal">Voix</string>
+
+     <!-- Thermal Profiles -->
+     <string name="thermal_title">Profils thermiques</string>
+     <string name="thermal_summary">Ajustez les profils thermiques par application pour des performances optimales</string>
+     <string name="thermal_default">Par défaut</string>
+     <string name="thermal_benchmark">Analyse de référence</string>
+     <string name="thermal_browser">Navigateur</string>
+     <string name="thermal_camera">Caméra</string>
+     <string name="thermal_dialer">Commandeur</string>
+     <string name="thermal_gaming">Jeux</string>
+     <string name="thermal_streaming">Diffusion</string>
+
+     <!-- Clear Speaker -->
+     <string name="clear_speaker_title">Effacer le haut-parleur</string>
+     <string name="clear_speaker_summary">Lisez un audio de 30 secondes pour libérer le haut-parleur</string>
+     <string name="clear_speaker_description">Exécutez cette fonctionnalité une ou deux fois si vous constatez que votre haut-parleur est légèrement obstrué par la poussière. Réglez le volume multimédia au maximum.\n\nSi le haut-parleur est fortement bloqué, exécutez cette fonctionnalité 2 à 5 fois tout en secouant votre appareil avec le haut-parleur orienté vers le bas.\n\nAVERTISSEMENT: Assurez-vous que tous les écouteurs sont débranchés.</string>
+
+     <!-- Refresh rate -->
+     <string name="refresh_title">Taux de rafraîchissement par application</string>
+     <string name="refresh_summary">Ajuster le taux de rafraîchissement maximum par application</string>
+     <string name="refresh_default">Par défaut</string>
+</resources>
