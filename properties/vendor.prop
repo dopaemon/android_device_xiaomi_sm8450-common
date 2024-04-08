@@ -129,6 +129,10 @@ persist.sys.fuse.passthrough.enable=true
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
 
+# HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
+
 # Graphics
 debug.egl.hw=0
 debug.sf.auto_latch_unsignaled=0
