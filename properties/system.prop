@@ -18,3 +18,21 @@ persist.vendor.sensors.enable.mag_filter=true
 
 # WiFi display
 persist.debug.wfd.enable=1
+
+# Improve global touch screen response
+debug.performance.tuning=1
+video.accelerate.hw=1
+view.touch_slop=1
+view.scroll_friction=1
+
+# Improve Sliding response 
+windowsmgr.max_events_per_sec=800
+ro.min_pointer_dur=0
+ro.min.pointer.dur=0
+
+# Open the first-in-first-out interface thread
+sys.use_fifo_ui=1
+
+# Turn off vertical sync (V-Sync)
+debug.hwui.disable_vsync=true
+persist.sys.ui.hw=1
