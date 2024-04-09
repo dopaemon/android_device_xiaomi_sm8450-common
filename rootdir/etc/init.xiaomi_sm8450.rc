@@ -100,6 +100,9 @@ on property:sys.boot_completed=1
 # Dynamically set IRQ affinity for KGSL and DRM
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450.sh
 
+# Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
+    
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 
@@ -108,9 +111,6 @@ service vendor.nv_mac /vendor/bin/nv_mac
     user system
     group system inet net_admin wifi net_raw
     oneshot
-
-# Enable suspend to RAM
-    write /sys/power/mem_sleep "deep"
 
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
