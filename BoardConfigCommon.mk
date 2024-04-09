@@ -114,6 +114,7 @@ BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
+    ktpi=off \
     irqaffinity=0-3 \
     mtdoops.fingerprint=mayfly:14/V816.0.5.0.ULTCNXM:user bootconfig
 
