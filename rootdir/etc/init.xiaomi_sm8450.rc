@@ -127,6 +127,9 @@ service vendor.nv_mac /vendor/bin/nv_mac
     group system inet net_admin wifi net_raw
     oneshot
 
+# Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
+
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
     class hal
