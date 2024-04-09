@@ -36,3 +36,10 @@ sys.use_fifo_ui=1
 # Turn off vertical sync (V-Sync)
 debug.hwui.disable_vsync=true
 persist.sys.ui.hw=1
+
+# Power-saving props
+ro.vendor.use_data_netmgrd=true
+ro.vold.umsdirtyratio=20
+ro.ril.disable.power.collapse=0
+power.saving.mode=1
+pm.sleep_mode=1
