@@ -81,6 +81,8 @@ function blob_fixup() {
             ;;
         vendor/etc/msm_irqbalance.conf)
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
+        system_ext/etc/seccomp_policy/tcmd.policy)
+            echo 'madvise: 1' >> ${2}
             ;;
     esac
 }
