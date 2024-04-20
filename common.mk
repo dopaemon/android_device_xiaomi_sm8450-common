@@ -310,7 +310,8 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.0.vendor
+    android.hardware.thermal@1.0.vendor \
+    android.hardware.thermal@2.0.vendor
 
 # NFC / Secure Element
 PRODUCT_PACKAGES += \
