@@ -300,6 +300,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # NFC
+    chown nfc nfc /dev/pn54x
+
     #Create a folder for SRS to be able to create a usercfg file
     #mkdir /data/data/media 0770 media media
 
