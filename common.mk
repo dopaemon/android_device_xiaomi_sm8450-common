@@ -408,6 +408,11 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.3.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0.vendor \
+    android.hardware.thermal@2.0.vendor
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.xiaomi-multihal \
