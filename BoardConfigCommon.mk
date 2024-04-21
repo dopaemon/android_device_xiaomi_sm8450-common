@@ -207,6 +207,9 @@ endif
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := taro
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Power
 TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
 
