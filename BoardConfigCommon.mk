@@ -29,6 +29,13 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 endif
 
+# Mainline
+include build/make/target/board/BoardConfigMainlineCommon.mk
+TARGET_USERIMAGES_USE_EXT4 := false
+TARGET_NO_RECOVERY := false
+TARGET_LMKD_STATS_LOG := false
+BOARD_AVB_ROLLBACK_INDEX := 0
+
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
