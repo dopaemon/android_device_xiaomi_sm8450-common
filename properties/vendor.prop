@@ -143,7 +143,6 @@ debug.hwui.target_cpu_time_percent=30
 debug.egl.hw=0
 debug.sf.auto_latch_unsignaled=0
 debug.sf.disable_client_composition_cache=1
-ro.hwui.render_ahead=5
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_hwc_vds=0
 debug.sf.hw=0
