@@ -227,6 +227,7 @@ ro.vendor.radio.build_profile=u-stable
 persist.vendor.rcs.singlereg.feature=0
 
 # Sensors
+ro.vendor.sensors.xiaomi.double_tap=true
 ro.vendor.sensors.xiaomi.single_tap=true
 ro.vendor.sensors.xiaomi.udfps=true
 
