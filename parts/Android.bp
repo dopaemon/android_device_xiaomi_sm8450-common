@@ -10,10 +10,7 @@ android_app {
         "SettingsLibDefaults",
     ],
 
-    srcs: [
-        "src/**/*.kt",
-        "src/**/*.java"
-    ],
+    srcs: ["src/**/*.java"],
 
     certificate: "platform",
     resource_dirs: ["res"],
@@ -29,14 +26,4 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
 
-    required: [
-        "privapp_whitelist_org.lineageos.settings.xml",
-    ],
-}
-
-prebuilt_etc {
-    name: "privapp_whitelist_org.lineageos.settings.xml",
-    src: "permissions/privapp_whitelist_org.lineageos.settings.xml",
-    sub_dir: "permissions",
-    system_ext_specific: true,
 }
