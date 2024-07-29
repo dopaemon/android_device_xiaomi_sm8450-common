@@ -247,7 +247,8 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 # Media
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
-    init.qti.media.sh
+    init.qti.media.sh \
+    libstagefright_softomx_plugin.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml \
