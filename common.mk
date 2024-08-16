@@ -426,6 +426,14 @@ $(foreach sku, taro diwali cape ukee, \
         frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.stepdetector.xml \
     ))
 
+# Disable async MTE on a few process
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.arm64.memtag.system_server=off \
+    persist.arm64.memtag.app.com.android.se=off \
+    persist.arm64.memtag.app.com.google.android.bluetooth=off \
+    persist.arm64.memtag.app.com.android.nfc=off \
+    persist.arm64.memtag.process.system_server=off
+
 # Telephony
 PRODUCT_PACKAGES += \
     extphonelib \
