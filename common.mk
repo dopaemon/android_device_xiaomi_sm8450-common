@@ -491,6 +491,10 @@ PRODUCT_COPY_FILES += \
 # UserfaultFD GC
 PRODUCT_ENABLE_UFFD_GC ?= false
 
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
+
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
