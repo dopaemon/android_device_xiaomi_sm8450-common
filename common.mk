@@ -63,6 +63,9 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc \
     vendor/qcom/opensource/commonsys-intf/display
 
+# Reduce system server verbosity.
+PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
