@@ -387,12 +387,6 @@ vendor/firmware/gmu_gen70000.bin
 # Graphics (Vulkan)
 vendor/lib64/hw/vulkan.adreno.so
 
-# Hotword Enrollment
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-system_ext/framework/com.android.hotwordenrollment.common.util.jar
-
 # IPA firmware
 vendor/etc/init/ipa_fws.rc
 
