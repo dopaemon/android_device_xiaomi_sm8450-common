@@ -10,7 +10,7 @@ on init
 on property:vendor.post_boot.parsed=1
 
     # Dynamic IRQ configuration
-    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_taro.perf.sh
+    exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.xiaomi_sm8450_perf.sh
 
     # Configure CPU input boost
     write /proc/sys/walt/input_boost/input_boost_freq "1324800 0 0 0 1113600 0 0 0"
