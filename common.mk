@@ -28,10 +28,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
 # Sign Rom
--include vendor/lineage-priv/keys/keys.mk
+# -include vendor/lineage-priv/keys/keys.mk
 
 # Vendor Extra
-$(call inherit-product, vendor/extra/product.mk)
+# $(call inherit-product, vendor/extra/product.mk)
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
