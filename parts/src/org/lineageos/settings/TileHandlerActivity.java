@@ -37,6 +37,9 @@ import org.lineageos.settings.thermal.ThermalSettingsActivity;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.powertools.PowerProfileTileService;
 import org.lineageos.settings.powertools.PowertoolsActivity;
+import org.lineageos.settings.autohbm.HbmTileService;
+import org.lineageos.settings.gamebar.GameBarSettingsActivity;
+import org.lineageos.settings.gamebar.GameBarTileService;
 
 public final class TileHandlerActivity extends Activity {
     private static final String TAG = "TileHandlerActivity";
@@ -99,3 +102,4 @@ public final class TileHandlerActivity extends Activity {
         finish();
     }
 }
+

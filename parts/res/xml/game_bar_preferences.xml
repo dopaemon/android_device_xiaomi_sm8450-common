@@ -231,8 +231,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Per-App GameBar">
-
+        android:title="Auto Enable GameBar">
         <SwitchPreferenceCompat
             android:key="game_bar_auto_enable"
             android:title="Auto-Enable GameBar for Selected Apps"
@@ -240,9 +239,14 @@
             android:defaultValue="false" />
 
         <Preference
-            android:key="game_bar_per_app_config"
-            android:title="Configure Apps"
-            android:summary="Choose which apps will auto-enable GameBar" />
+            android:key="game_bar_app_selector"
+            android:title="Select Apps"
+            android:summary="Add apps that should auto-enable GameBar" />
+
+        <Preference
+            android:key="game_bar_app_remover"
+            android:title="Remove Selected Apps"
+            android:summary="Remove apps from the auto-enable list" />
     </PreferenceCategory>
 
 </PreferenceScreen>
