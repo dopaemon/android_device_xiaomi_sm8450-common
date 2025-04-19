@@ -23,9 +23,7 @@ struct _oem_msg {
     float unknown2;
     float notifyTypeFloat;
     float value;
-
-    // Add padding up to 256 bytes
-    float unused[58];
+    float unused[64];
 };
 
 typedef void (*init_current_sensors_t)(bool debug);
