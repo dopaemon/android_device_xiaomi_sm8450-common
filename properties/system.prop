@@ -25,3 +25,6 @@ persist.debug.wfd.enable=1
 
 # Disable default frame rate limit for games
 debug.graphics.game_default_frame_rate.disabled=1
+
+# Increase max cached processes
+activity_manager.max_cached_processes=64
