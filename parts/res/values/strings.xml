@@ -25,10 +25,10 @@
     <string name="tile_on">On</string>
     <string name="tile_off">Off</string>
  
-    <!-- Thermal Profiles -->
-    <string name="thermal_title">Per-App Thermal Profile</string>
-    <string name="thermal_enable">Use Per-app thermal profiles</string>
-    <string name="thermal_summary">Adjust per-app thermal profiles for optimum performance</string>
+    <!-- Thermal profiles -->
+    <string name="thermal_title">Thermal profiles</string>
+    <string name="thermal_enable">Use thermal profiles</string>
+    <string name="thermal_summary">Per-app thermal profile configuration</string>
     <string name="thermal_default">Default</string>
     <string name="thermal_benchmark">Benchmark</string>
     <string name="thermal_browser">Browser</string>
@@ -40,17 +40,25 @@
     <string name="thermal_video">Video</string>
 
     <!-- Thermal Tile Strings -->
-    <string name="thermal_tile_label">Per-App Thermal Profile</string>
-    <string name="thermal_tile_enabled_subtitle">Enabled</string>
-    <string name="thermal_tile_disabled_subtitle">Disabled</string>
+    <string name="thermal_tile_label">Thermal Profile</string>
+    <string name="thermal_mode_default">Default Mode</string>
+    <string name="thermal_mode_performance">Performance Mode</string>
+    <string name="thermal_mode_battery_saver">Battery Saver Mode</string>
+    <string name="thermal_mode_gaming">Gaming Mode</string>
+    <string name="thermal_mode_unknown">Unknown Mode</string>
+    <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
+    <string name="gaming_mode_title">Gaming Mode</string>
+    <string name="gaming_mode_notification">Gaming Mode is now activated for optimal gaming performance.</string>
 
     <!-- Per-app refresh rate -->
     <string name="refresh_title">Per-app refresh rate</string>
     <string name="refresh_summary">Set the maximum refresh rate for a specific application</string>
     <string name="refresh_default">Default</string>
     <string name="refresh_standard">60Hz</string>
-    <string name="refresh_extreme">120Hz</string>
-    <string name="refresh_land">60Hz on Landscape</string>    
+    <string name="refresh_extreme">120Hz</string>  
+    <string name="refresh_land">60Hz on Landscape</string>
+    <string name="refresh_90">90Hz</string>
+    <string name="refresh_90_land">90Hz on Landscape</string>
 
     <!-- Doze Strings -->
     <string name="doze_brightness_low">Low brightness</string>
@@ -120,7 +128,7 @@
     <string name="perf_mode_notification">High Performance Mode is now activated for enhanced performance.</string>
     <string name="gaming_mode_title">Game Boost</string>
     <string name="gaming_mode_notification">Game Boost Mode is now activated for optimal gaming performance.</string>
-    <string name="power_profile_footer_summary">Note: Higher frequencies (e.g., GPU over 900MHz and prime core higher clock) are available only in Game Boost mode.</string>
+    <string name="power_profile_footer_summary">Note: Higher frequencies are available only in Game Boost mode.</string>
 
     <!-- Powertools Main Title -->
     <string name="Powertools_title">Powertools</string>
