@@ -68,6 +68,10 @@
 /(vendor|system/vendor)/bin/sensor-notifier u:object_r:vendor_sensor_notifier_exec:s0
 /dev/stmvl53l5 u:object_r:stmvl53l5_device:s0
 
+# Sound Control
+/sys/kernel/sound_control/mic_gain u:object_r:sysfs_sndctrl:s0
+/sys/kernel/sound_control/headphone_gain u:object_r:sysfs_sndctrl:s0
+
 # Thermal
 /(vendor|system/vendor)/bin/mi_thermald u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)? u:object_r:thermal_data_file:s0

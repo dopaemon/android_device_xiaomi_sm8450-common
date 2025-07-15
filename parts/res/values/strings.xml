@@ -137,4 +137,11 @@
     <!-- GPU Strings -->
     <string name="gpu_min_frequency">GPU Minimum Frequency</string>
     <string name="gpu_max_frequency">GPU Maximum Frequency</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">Sound Control</string>
+    <string name="mic_gain">Microphone gain (dB)</string>
+    <string name="hp_left_gain">Left headphone gain</string>
+    <string name="hp_right_gain">Right headphone gain</string>
+    <string name="sound_control_enable">Enable sound control</string>
 </resources>
