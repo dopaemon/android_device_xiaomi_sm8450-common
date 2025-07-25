@@ -26,8 +26,7 @@
     <string name="tile_off">Off</string>
  
     <!-- Thermal profiles -->
-    <string name="thermal_title">Thermal profiles</string>
-    <string name="thermal_enable">Use thermal profiles</string>
+    <string name="thermal_tile_enabled_subtitle">Enabled</string>
     <string name="thermal_summary">Per-app thermal profile configuration</string>
     <string name="thermal_default">Default</string>
     <string name="thermal_benchmark">Benchmark</string>
