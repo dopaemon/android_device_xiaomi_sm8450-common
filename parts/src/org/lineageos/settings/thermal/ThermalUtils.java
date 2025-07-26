@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.lineageos.settings.thermal;
 
 import android.content.Context;
@@ -57,15 +56,15 @@ public final class ThermalUtils {
     public static final int STATE_VIDEO = 8;
 
     private static final Map<Integer, String> THERMAL_STATE_MAP = Map.of(
-        STATE_DEFAULT, "0",
-        STATE_BENCHMARK, "10",
-        STATE_BROWSER, "11",
-        STATE_CAMERA, "12",
-        STATE_DIALER, "8",
-        STATE_GAMING, "10",
-        STATE_NAVIGATION, "19",
-        STATE_STREAMING, "4",
-        STATE_VIDEO, "21"
+            STATE_DEFAULT, "0",
+            STATE_BENCHMARK, "10",
+            STATE_BROWSER, "11",
+            STATE_CAMERA, "12",
+            STATE_DIALER, "8",
+            STATE_GAMING, "10",
+            STATE_NAVIGATION, "19",
+            STATE_STREAMING, "4",
+            STATE_VIDEO, "21"
     );
 
     private static final String THERMAL_BENCHMARK = "thermal.benchmark=";
@@ -263,13 +262,18 @@ public final class ThermalUtils {
 
         if (AppUtils.isBrowserApp(mContext, packageName, UserHandle.myUserId())) {
             return STATE_BROWSER;
-        } else if (DefaultDialerManager.getDefaultDialerApplication(mContext).equals(packageName)) {
-            return STATE_DIALER;
-        } else if (isCameraApp(packageName)) {
-            return STATE_CAMERA;
-        } else {
-            return STATE_DEFAULT;
         }
+
+        String defaultDialer = DefaultDialerManager.getDefaultDialerApplication(mContext);
+        if (defaultDialer != null && defaultDialer.equals(packageName)) {
+            return STATE_DIALER;
+        }
+
+        if (isCameraApp(packageName)) {
+            return STATE_CAMERA;
+        }
+
+        return STATE_DEFAULT;
     }
 
     private boolean isCameraApp(String packageName) {
