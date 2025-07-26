@@ -39,6 +39,7 @@
     <string name="thermal_video">Video</string>
 
     <!-- Thermal Tile Strings -->
+    <string name="thermal_title">Thermal profiles</string>
     <string name="thermal_enable">Use thermal profiles</string>
     <string name="thermal_tile_label">Thermal Profile</string>
     <string name="thermal_mode_default">Default Mode</string>
