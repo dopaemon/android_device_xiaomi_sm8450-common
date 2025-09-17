@@ -18,7 +18,8 @@
         "9999999",
         "1056000",
         "806400",
-        "614400"
+        "614400",
+        "300000"
       ],
       "ResetOnInit": true
     },
@@ -731,7 +732,7 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "614400"
+      "Value": "300000"
     },
     {
       "PowerHint": "DEVICE_IDLE",
