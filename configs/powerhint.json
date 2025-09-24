@@ -721,6 +721,30 @@
       "Value": "0"
     },
     {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GPUMaxFreq",
+      "Duration": 0,
+      "Value": "900000000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2496000"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPUBigPlusClusterMaxFreq",
+      "Duration": 0,
+      "Value": "2918400"
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "1804800"
+    },
+    {
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
@@ -898,60 +922,6 @@
       "PowerHint": "THERMAL_EVENT",
       "Node": "UclampFGMin",
       "Duration": 5000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "CPUBigPlusClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 0,
-      "Value": "9999999"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "950000000"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "515000000"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "CPUBWMinFreq",
-      "Duration": 0,
-      "Value": "3196000"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "LLCCBWMinFreq",
-      "Duration": 0,
-      "Value": "1066000"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "UclampTAMin",
-      "Duration": 0,
-      "Value": "40"
-    },
-    {
-      "PowerHint": "GAMING_MODE",
-      "Node": "ThermalProfile",
-      "Duration": 0,
       "Value": "0"
     },
     {
