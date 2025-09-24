@@ -901,16 +901,58 @@
       "Value": "0"
     },
     {
-      "PowerHint": "ROTATION",
-      "Node": "GPUMinFreq",
-      "Duration": 500,
-      "Value": "364000000"
+      "PowerHint": "GAMING_MODE",
+      "Node": "CPUBigPlusClusterMaxFreq",
+      "Duration": 0,
+      "Value": "9999999"
     },
     {
-      "PowerHint": "ROTATION",
+      "PowerHint": "GAMING_MODE",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 0,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 0,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "GPUMaxFreq",
+      "Duration": 0,
+      "Value": "950000000"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "GPUMinFreq",
+      "Duration": 0,
+      "Value": "515000000"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
       "Node": "CPUBWMinFreq",
-      "Duration": 500,
-      "Value": "547000"
+      "Duration": 0,
+      "Value": "3196000"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "LLCCBWMinFreq",
+      "Duration": 0,
+      "Value": "1066000"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "40"
+    },
+    {
+      "PowerHint": "GAMING_MODE",
+      "Node": "ThermalProfile",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "Flipendo",
