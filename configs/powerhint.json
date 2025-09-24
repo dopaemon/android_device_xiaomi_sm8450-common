@@ -535,7 +535,7 @@
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "2918400"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
@@ -547,7 +547,7 @@
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "2496000"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
@@ -559,7 +559,7 @@
       "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "9999999"
+      "Value": "1804800"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
