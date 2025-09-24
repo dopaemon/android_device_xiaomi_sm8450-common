@@ -4,7 +4,6 @@
       "Name": "CPULittleClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
-        "9999999",
         "1804800",
         "1574400"
       ],
@@ -15,7 +14,6 @@
       "Name": "CPULittleClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
-        "9999999",
         "1056000",
         "806400",
         "614400",
@@ -46,7 +44,6 @@
       "Name": "CPUBigClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
       "Values": [
-        "9999999",
         "2496000",
         "2342400",
         "1555200"
@@ -58,7 +55,6 @@
       "Name": "CPUBigClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq",
       "Values": [
-        "9999999",
         "1555200",
         "1324800",
         "1113600",
@@ -90,7 +86,6 @@
       "Name": "CPUBigPlusClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq",
       "Values": [
-        "9999999",
         "2918400",
         "2361600",
         "1536000"
@@ -102,7 +97,6 @@
       "Name": "CPUBigPlusClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq",
       "Values": [
-        "9999999",
         "1286400",
         "787200",
         "0"
@@ -260,6 +254,7 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "10000",
+        "5000",
         "2000",
         "58"
       ],
@@ -414,7 +409,7 @@
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 250,
-      "Value": "40"
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
@@ -624,7 +619,7 @@
       "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
       "Duration": 1500,
-      "Value": "3196000"
+      "Value": "1555000"
     },
     {
       "PowerHint": "LAUNCH",
