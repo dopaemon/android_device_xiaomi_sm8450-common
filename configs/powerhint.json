@@ -378,13 +378,13 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "1555200"
+      "Value": "2342400"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "1536000"
+      "Value": "2361600"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -396,13 +396,19 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "515000000"
+      "Value": "710000000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "ThermalProfile",
       "Duration": 0,
       "Value": "20"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
@@ -672,31 +678,31 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "285000000"
+      "Value": "439000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
-      "Value": "787200"
+      "Value": "1286400"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "1113600"
+      "Value": "1324800"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "806400"
+      "Value": "1056000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "30"
+      "Value": "40"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -720,7 +726,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "900000000"
+      "Value": "950000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
