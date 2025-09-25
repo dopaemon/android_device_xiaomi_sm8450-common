@@ -59,6 +59,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us",
       "Values": [
         "20000",
+        "8000",
         "2000"
       ],
       "ResetOnInit": true
@@ -128,6 +129,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us",
       "Values": [
         "10000",
+        "6000",
         "2000"
       ],
       "ResetOnInit": true
@@ -902,7 +904,7 @@
       "PowerHint": "VIDEO_DECODE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
-      "Value": "614400"
+      "Value": "691200"
     },
     {
       "PowerHint": "VIDEO_DECODE",
