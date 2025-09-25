@@ -4,8 +4,21 @@
       "Name": "CPULittleClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
       "Values": [
+        "9999999",
         "1804800",
-        "1574400"
+        "1670400",
+        "1555200",
+        "1440000",
+        "1324800",
+        "1228800",
+        "1132800",
+        "1056000",
+        "940800",
+        "806400",
+        "691200",
+        "556800",
+        "441600",
+        "300000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -14,9 +27,20 @@
       "Name": "CPULittleClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq",
       "Values": [
+        "9999999",
+        "1804800",
+        "1670400",
+        "1555200",
+        "1440000",
+        "1324800",
+        "1228800",
+        "1132800",
         "1056000",
+        "940800",
         "806400",
-        "614400",
+        "691200",
+        "556800",
+        "441600",
         "300000"
       ],
       "ResetOnInit": true
@@ -35,7 +59,6 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us",
       "Values": [
         "20000",
-        "8000",
         "2000"
       ],
       "ResetOnInit": true
@@ -44,9 +67,24 @@
       "Name": "CPUBigClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq",
       "Values": [
+        "9999999",
         "2496000",
         "2342400",
-        "1555200"
+        "2227200",
+        "2112000",
+        "1996800",
+        "1881600",
+        "1766400",
+        "1651200",
+        "1555200",
+        "1440000",
+        "1324800",
+        "1209600",
+        "1113600",
+        "998400",
+        "883200",
+        "768000",
+        "633600"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -55,9 +93,22 @@
       "Name": "CPUBigClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq",
       "Values": [
+        "2496000",
+        "2342400",
+        "2227200",
+        "2112000",
+        "1996800",
+        "1881600",
+        "1766400",
+        "1651200",
         "1555200",
+        "1440000",
         "1324800",
+        "1209600",
         "1113600",
+        "998400",
+        "883200",
+        "768000",
         "633600",
         "0"
       ],
@@ -74,10 +125,9 @@
     },
     {
       "Name": "CPUBigClusterDownRateLimit",
- ,     "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us",
       "Values": [
         "10000",
-        "6000",
         "2000"
       ],
       "ResetOnInit": true
@@ -86,9 +136,26 @@
       "Name": "CPUBigPlusClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq",
       "Values": [
+        "9999999",
         "2918400",
+        "2822400",
+        "2707200",
+        "2592000",
+        "2476800",
         "2361600",
-        "1536000"
+        "2246400",
+        "2131200",
+        "1996800",
+        "1881600",
+        "1766400",
+        "1651200",
+        "1536000",
+        "1401600",
+        "1286400",
+        "1171200",
+        "1036800",
+        "921600",
+        "787200"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -97,7 +164,25 @@
       "Name": "CPUBigPlusClusterMinFreq",
       "Path": "/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq",
       "Values": [
+        "9999999",
+        "2918400",
+        "2822400",
+        "2707200",
+        "2592000",
+        "2476800",
+        "2361600",
+        "2246400",
+        "2131200",
+        "1996800",
+        "1881600",
+        "1766400",
+        "1651200",
+        "1536000",
+        "1401600",
         "1286400",
+        "1171200",
+        "1036800",
+        "921600",
         "787200",
         "0"
       ],
