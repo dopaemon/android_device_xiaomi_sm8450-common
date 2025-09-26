@@ -497,7 +497,7 @@
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 250,
-      "Value": "60"
+      "Value": "40"
     },
     {
       "PowerHint": "INTERACTION",
