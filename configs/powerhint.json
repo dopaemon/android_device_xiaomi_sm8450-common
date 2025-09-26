@@ -878,6 +878,24 @@
       "Value": "0"
     },
     {
+      "PowerHint": "DEVICE_IDLE",
+      "Node": "GPUForceRailOn",
+      "Duration": 0,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "DEVICE_IDLE",
+      "Node": "GPUForceClkOn",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "DEVICE_IDLE",
+      "Node": "GPUIdleTimer",
+      "Duration": 0,
+      "Value": "2000"
+    },
+    {
       "PowerHint": "VIDEO_ENCODE",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 0,
