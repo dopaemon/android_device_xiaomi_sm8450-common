@@ -215,6 +215,7 @@
         "0",
         "30",
         "40",
+        "51",
         "60"
       ],
       "DefaultIndex": 0,
@@ -245,6 +246,7 @@
       "Values": [
         "99000000",
         "30000000",
+        "10000000",
         "3000000",
         "0"
       ],
@@ -497,7 +499,7 @@
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 250,
-      "Value": "40"
+      "Value": "51"
     },
     {
       "PowerHint": "INTERACTION",
@@ -605,7 +607,7 @@
       "PowerHint": "INTERACTIVE",
       "Node": "SchedBusyHystNs",
       "Duration": 0,
-      "Value": "3000000"
+      "Value": "10000000"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -958,7 +960,7 @@
     {
       "PowerHint": "TOUCH_DOWN",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 100,
+      "Duration": 150,
       "Value": "1056000"
     },
     {
@@ -983,7 +985,7 @@
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 80,
-      "Value": "806400"
+      "Value": "940800"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
