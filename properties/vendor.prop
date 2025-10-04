@@ -237,3 +237,6 @@ wifi.aware.interface=wifi-aware0
 
 # LMK
 ro.config.low_ram=false
+
+# Zygote
+ro.zygote.disable_gl_preload=1
