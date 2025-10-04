@@ -130,6 +130,7 @@
       "Values": [
         "10000",
         "6000",
+        "4000",
         "2000"
       ],
       "ResetOnInit": true
@@ -204,6 +205,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us",
       "Values": [
         "5000",
+        "4000",
         "2000"
       ],
       "ResetOnInit": true
@@ -373,6 +375,7 @@
       "Path": "/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/hist_memory",
       "Values": [
         "0",
+        "10",
         "20"
       ],
       "ResetOnInit": true
@@ -499,7 +502,7 @@
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 250,
-      "Value": "51"
+      "Value": "40"
     },
     {
       "PowerHint": "INTERACTION",
@@ -535,7 +538,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWHistMemory",
       "Duration": 250,
-      "Value": "0"
+      "Value": "10"
     },
     {
       "PowerHint": "INTERACTION",
@@ -589,7 +592,7 @@
       "PowerHint": "INTERACTIVE",
       "Node": "CPUBigClusterDownRateLimit",
       "Duration": 0,
-      "Value": "6000"
+      "Value": "4000"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -601,7 +604,7 @@
       "PowerHint": "INTERACTIVE",
       "Node": "CPUBigPlusClusterDownRateLimit",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "4000"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -614,6 +617,18 @@
       "Node": "SchedBusyHystEnableCPUs",
       "Duration": 0,
       "Value": "15"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "SchedMinTaskUtilForBoost",
+      "Duration": 0,
+      "Value": "35"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "SchedMinTaskUtilForUclamp",
+      "Duration": 0,
+      "Value": "35"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -895,7 +910,7 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "GPUIdleTimer",
       "Duration": 0,
-      "Value": "2000"
+      "Value": "5000"
     },
     {
       "PowerHint": "VIDEO_ENCODE",
