@@ -163,6 +163,7 @@ ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 vendor.gralloc.disable_ubwc=0
 
 # HWUI
+debug.sf.enable_adpf_cpu_hint=true
 debug.hwui.use_hint_manager=true
 debug.hwui.target_cpu_time_percent=30
 
