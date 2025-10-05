@@ -28,7 +28,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
 # Sign
-$(call inherit-product, vendor/lineage-priv/keys/keys.mk)
+$(call inherit-product, vendor/voltage-priv/keys/keys.mk)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
