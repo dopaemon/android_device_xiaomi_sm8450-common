@@ -472,7 +472,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "2361600"
+      "Value": "2246400"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -484,7 +484,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "710000000"
+      "Value": "645000000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
@@ -501,8 +501,8 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 250,
-      "Value": "40"
+      "Duration": 150,
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
@@ -543,7 +543,7 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
-      "Duration": 150,
+      "Duration": 100,
       "Value": "547000"
     },
     {
@@ -568,7 +568,7 @@
       "PowerHint": "INTERACTION",
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
-      "Value": "600000"
+      "Value": "300000"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -675,19 +675,19 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigPlusClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 1000,
       "Value": "1286400"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 1000,
       "Value": "1324800"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 1500,
+      "Duration": 1000,
       "Value": "691200"
     },
     {
@@ -723,7 +723,7 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBWMinFreq",
-      "Duration": 1500,
+      "Duration": 800,
       "Value": "1555000"
     },
     {
@@ -747,7 +747,7 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "LLCCBWMinFreq",
-      "Duration": 1500,
+      "Duration": 800,
       "Value": "600000"
     },
     {
@@ -765,7 +765,7 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
-      "Duration": 1500,
+      "Duration": 800,
       "Value": "2000"
     },
     {
@@ -802,7 +802,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "UclampTAMin",
       "Duration": 0,
-      "Value": "40"
+      "Value": "30"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -826,19 +826,19 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "950000000"
+      "Value": "815000000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "2496000"
+      "Value": "2342400"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "2918400"
+      "Value": "2707200"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -898,7 +898,7 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "GPUForceRailOn",
       "Duration": 0,
-      "Value": "1"
+      "Value": "0"
     },
     {
       "PowerHint": "DEVICE_IDLE",
@@ -910,7 +910,7 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "GPUIdleTimer",
       "Duration": 0,
-      "Value": "5000"
+      "Value": "2000"
     },
     {
       "PowerHint": "VIDEO_ENCODE",
@@ -976,7 +976,7 @@
       "PowerHint": "TOUCH_DOWN",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 150,
-      "Value": "1056000"
+      "Value": "940800"
     },
     {
       "PowerHint": "TOUCH_DOWN",
