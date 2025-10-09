@@ -290,4 +290,7 @@
 
     <!-- Feature flag to store TaskSnapshot in 16 bit pixel format to save memory. -->
     <bool name="config_use16BitTaskSnapshotPixelFormat">true</bool>
+
+    <!-- System Info -->
+    <integer name="config_sysCPUTempMultiplier">1000</integer>
 </resources>
