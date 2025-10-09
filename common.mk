@@ -119,8 +119,6 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
-$(call soong_config_set, ufsbsg, ufsframework, bsg)
-
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
 
