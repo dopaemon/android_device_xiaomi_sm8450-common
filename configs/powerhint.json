@@ -241,6 +241,7 @@
       "Path": "/dev/cpuctl/foreground/cpu.uclamp.min",
       "Values": [
         "0",
+        "30",
         "50"
       ],
       "DefaultIndex": 0,
@@ -526,8 +527,8 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampFGMin",
-      "Duration": 3000,
-      "Value": "50"
+      "Duration": 1500,
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
