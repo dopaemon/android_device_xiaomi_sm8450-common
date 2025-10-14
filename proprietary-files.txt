@@ -23,6 +23,11 @@ vendor/lib64/libpal_net_if.so
 vendor/lib64/libqtigefar.so
 vendor/lib64/soundfx/libasphere.so
 
+# Audio FX modules - from qssi-user-14-UKQ1.230924.001-1702916091049-release-keys
+vendor/lib64/soundfx/libqcbassboost.so|e655270002aef6e9eb79774b16d2cda408fc3be8
+vendor/lib64/soundfx/libqcreverb.so|6365400f47e7a1f56f902884993963acd567bbdf
+vendor/lib64/soundfx/libqcvirt.so|e2cd59853b16a7d11739472085b07e90771a6dbe
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -39,6 +44,16 @@ vendor/lib64/libbtnv.so
 vendor/lib64/libsoc_helper.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
+
+# Bluetooth (LDAC & LHDC)
+system/lib/libldacBT_abr.so|df5fd8ec11088b856b9ab7ec4578fae020187053
+system/lib/libldacBT_enc.so|640a7adeb984f28a8498a87b30a0f28141bb07aa
+system_ext/lib/liblhdcBT_enc.so|7c5b5fd0a4f815c6a19435515bb4aa98cb0fa809
+system_ext/lib/liblhdc.so|3aa0e656ba9991b392a0fd1451916799d3a48444
+system/lib64/libldacBT_abr.so|a047c11e7c506f48de5580e6a819e659fa208f1b
+system/lib64/libldacBT_enc.so|d859ffa7da473040417234de67fe6342abec6968 
+system_ext/lib64/liblhdcBT_enc.so|6575185953e386e9a56ed4f40c16da59a575de56
+system_ext/lib64/liblhdc.so|b8e88fc77386ca814dc56aea5c0ad2a0cc19119b
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -352,6 +367,8 @@ vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
 vendor/lib/libCB.so
+vendor/lib/libC2D2.so
+vendor/lib/libc2d30_bltlib.so
 vendor/lib/libOpenCL.so
 vendor/lib/libadreno_app_profiles.so
 vendor/lib/libadreno_utils.so
@@ -370,6 +387,8 @@ vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
 vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/libCB.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libadreno_app_profiles.so
 vendor/lib64/libadreno_utils.so
@@ -545,6 +564,7 @@ vendor/lib64/libsubsystem_control.so
 # QCV
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
+vendor/lib64/libsoc_helper_jni.so
 
 # QMI
 system/etc/sysconfig/qti_whitelist.xml
@@ -902,14 +922,12 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 # Trusted User Interface
 vendor/lib64/libminksocket_vendor.so
 
+# Trustzone
+vendor/app/TrustZoneAccessService/TrustZoneAccessService.apk
+
 # VM mem
 vendor/lib/libvmmem.so
 vendor/lib64/libvmmem.so
-
-# VM mgr
-vendor/bin/vmmgr
-vendor/etc/init/vmmgr.rc
-vendor/etc/vmmgr.conf
 
 # VPP
 vendor/bin/hw/qconfigservice

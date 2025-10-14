@@ -333,6 +333,9 @@ subsystem mem_buf_vm
 /dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
 
+# eSE permissions
+/dev/st54spi_gpio         0660   system     system
+
 # UIO devices
 /dev/uio0                 0660   system     system
 /dev/uio1                 0660   system     system
@@ -504,6 +507,9 @@ subsystem mem_buf_vm
 
 # devcoredump data attributes
 /sys/class/devcoredump/devcd*                           data                            0600    system  system
+
+#power_state device node
+/dev/power_state           0660   system      system
 
 # Battery
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system

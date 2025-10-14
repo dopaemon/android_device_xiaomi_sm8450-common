@@ -22,22 +22,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 # Setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-8192-dalvik-heap.mk)
 
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
 # Sign
 $(call inherit-product, vendor/lineage-priv/keys/keys.mk)
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/xiaomi \
-    hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/cherish/interfaces/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -62,7 +53,7 @@ BOARD_SHIPPING_API_LEVEL := 31
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0-impl:64 \
+    android.hardware.audio@7.1-impl:64 \
     android.hardware.audio.effect@7.0-impl:64 \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl:64 \
@@ -123,12 +114,21 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
 
+# Bluetooth Library Deps
+ PRODUCT_PACKAGES += \
+     libbluetooth_audio_session \
+     libbthost_if.vendor \
+     libldacBT_bco \
+     libldacBT_bco.vendor \
+     liblhdc \
+     liblhdcBT_enc \
+     liblhdcdec \
+     liblhdcBT_dec
+
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
-
-$(call soong_config_set, ufsbsg, ufsframework, bsg)
 
 # Camera
 $(call soong_config_set,camera,override_format_from_reserved,true)
@@ -138,6 +138,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
+
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer
 
 # Display
 PRODUCT_PACKAGES += \
@@ -227,6 +231,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
+# IFAA
+PRODUCT_PACKAGES += \
+    IFAAService
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -258,7 +266,8 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 # Media
 PRODUCT_PACKAGES += \
     init.qti.media.rc \
-    init.qti.media.sh
+    init.qti.media.sh \
+    libstagefright_softomx_plugin.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml \
@@ -291,7 +300,7 @@ $(foreach sku_out, $(TARGET_COPY_OUT_NFC_SKU_PERMISSIONS), \
         frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(sku_out)/android.hardware.nfc.hcef.xml \
         frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(sku_out)/android.hardware.nfc.uicc.xml \
         frameworks/native/data/etc/android.hardware.nfc.xml:$(sku_out)/android.hardware.nfc.xml \
-        frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(sku_out)/etc/permissions/android.hardware.se.omapi.ese.xml \
+        frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(sku_out)/android.hardware.se.omapi.ese.xml \
         frameworks/native/data/etc/com.android.nfc_extras.xml:$(sku_out)/com.android.nfc_extras.xml \
         frameworks/native/data/etc/com.nxp.mifare.xml:$(sku_out)/com.nxp.mifare.xml))
 
@@ -322,8 +331,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
     vendor_dsp_mountpoint \
-    vendor_firmware_mnt_mountpoint \
-    vendor_vm-system_mountpoint
+    vendor_firmware_mnt_mountpoint
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -373,6 +381,16 @@ $(foreach sku, taro diwali cape ukee, \
         frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.stepcounter.xml \
         frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.stepdetector.xml \
     ))
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/xiaomi \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/cherish/interfaces/power-libperfmgr \
+    hardware/qcom-caf/common/libqti-perfd-client \
+    vendor/qcom/opensource/usb/etc
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -440,11 +458,12 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.sh \
     usb_compositions.conf
 
-PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/usb/etc
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
+
+# UserfaultFD GC
+PRODUCT_ENABLE_UFFD_GC ?= false
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
@@ -455,7 +474,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qti.kernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qti.kernel.rc \
     $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.xiaomi_sm8450.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.xiaomi_sm8450.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.xiaomi_sm8450.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.xiaomi_sm8450.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.class_main.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.class_main.sh \
@@ -468,7 +487,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.qcom.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.sh \
     $(LOCAL_PATH)/rootdir/bin/init.qti.kernel.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.kernel.sh \
     $(LOCAL_PATH)/rootdir/bin/init.qti.write.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.write.sh \
-    $(LOCAL_PATH)/rootdir/bin/vendor_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/vendor_modprobe.sh
+    $(LOCAL_PATH)/rootdir/bin/vendor_modprobe.sh:$(TARGET_COPY_OUT_VENDOR)/bin/vendor_modprobe.sh \
+    $(LOCAL_PATH)/rootdir/bin/init.xiaomi_sm8450_perf.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.xiaomi_sm8450_perf.sh
 
 # Verified boot
 PRODUCT_COPY_FILES += \
@@ -503,6 +523,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.rtt.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.rtt.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
+
+# WiFi Display
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V2-cpp:64 \
+    vendor.qti.hardware.display.config-V5-ndk:64
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \

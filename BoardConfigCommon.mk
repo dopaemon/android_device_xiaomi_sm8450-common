@@ -23,20 +23,19 @@ AB_OTA_PARTITIONS += \
     vendor_boot \
     vendor_dlkm
 
-# Architecture
+# Primary (64-bit)
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv9-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := kryo785
+TARGET_CPU_VARIANT := cortex-a510
 
+# Secondary (32-bit)
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
+TARGET_2ND_CPU_VARIANT := cortex-a55
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -109,10 +108,15 @@ BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
-    mtdoops.fingerprint=$(CHERISH_VERSION)
+    mtdoops.fingerprint=$(CHERISH_VERSION) \
+    allow_file_spec_access \
+    irqaffinity=0-3 \
+    pelt=8
+
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
+    loop.max_part=8 \
     androidboot.usbcontroller=a600000.dwc3
 
 # Kernel modules
@@ -165,20 +169,10 @@ BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # 0x21FC00000 # BOARD_SUPER_PARTITION_SIZE - overhead (4MiB)
 
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
-
-TARGET_COPY_OUT_ODM := odm
-TARGET_COPY_OUT_PRODUCT := product
-TARGET_COPY_OUT_SYSTEM_EXT := system_ext
-TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
-
--include vendor/cherish/config/BoardConfigReservedSize.mk
+$(foreach p, $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
+    $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
+    $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600) \
+    $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true

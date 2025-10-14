@@ -117,6 +117,10 @@ on boot
     #USB controller configuration
     setprop vendor.usb.controller a600000.dwc3
 
+    # Set doze mode permissions
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode
+
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
@@ -192,8 +196,6 @@ on early-boot && property:persist.vendor.pcie.boot_option=*
 on property:sys.boot_completed=1
     enable vendor.qvirtmgr
     start  vendor.qvirtmgr
-    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
-    stop statsd
 
 # Restrict access on this node
 on property:sys.boot_completed=1

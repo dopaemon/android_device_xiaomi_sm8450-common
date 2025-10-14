@@ -1,6 +1,12 @@
 # Battery
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb u:object_r:vendor_sysfs_usb_supply:s0
+genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery/wakeup37 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb/wakeup39 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:xm_battmngr/wakeup/wakeup38 u:object_r:sysfs_wakeup:s0
+
+# Doze
+genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary/doze_mode                                                                                         u:object_r:vendor_sysfs_graphics:s0
 
 # Fingerprint
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc u:object_r:vendor_sysfs_fingerprint:s0
@@ -15,6 +21,7 @@ genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_enabled u:obj
 genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_state u:object_r:vendor_sysfs_sensors:s0
 
 # Suspend
+genfscon sysfs /devices/platform/goodix_ts.0/wakeup/wakeup33  u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/3000000.remoteproc-adsp/remoteproc/remoteproc2/3000000.remoteproc-adsp:glink-edge/3000000.remoteproc-adsp:glink-edge.adsp_apps.-1.-1/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/884000.i2c/i2c-3/3-005a/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/88c000.i2c/i2c-6/6-005a/wakeup u:object_r:sysfs_wakeup:s0
@@ -24,6 +31,20 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,
 genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_fpc/wakeup/wakeup u:object_r:sysfs_wakeup:s0
 
+# sysfs_wakeup
+genfscon sysfs /devices/platform/soc/a90000.i2c/i2c-4/4-0051/wakeup/wakeup36 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/980000.spi/spi_master/spi0/spi0.0/synaptics_tcm.0/wakeup/wakeup26 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/dual-role-type_c_port0/wakeup32 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-006a/wakeup/wakeup40 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-0051/wakeup/wakeup27 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/wakeup/wakeup33 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-3/3-0028/wakeup/wakeup23 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a90000.i2c/i2c-4/4-0055/wakeup/wakeup21 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/wakeup28 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/wakeup30 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/wakeup29 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/wakeup31 u:object_r:sysfs_wakeup:s0
+
 # Touchscreen
 genfscon sysfs /devices/platform/goodix_ts.0/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate u:object_r:vendor_sysfs_touch:s0
@@ -32,3 +53,10 @@ genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate u:object_r:vend
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_0/brightness u:object_r:sysfs_torch:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_0/max_brightness u:object_r:sysfs_torch:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-02/c42d000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:switch_2/brightness u:object_r:sysfs_torch:s0
+
+# Performance mode
+genfscon proc /sys/vm/dirty_writeback_centisecs     u:object_r:proc_dirty:s0
+genfscon proc /sys/vm/vfs_cache_pressure            u:object_r:proc_drop_caches:s0
+genfscon proc /sys/vm/dirty_ratio                   u:object_r:proc_dirty:s0
+genfscon proc /sys/kernel/sched_migration_cost_ns   u:object_r:proc_sched:s0
+genfscon proc /sys/kernel/sched_pelt_multiplier     u:object_r:proc_sched:s0
