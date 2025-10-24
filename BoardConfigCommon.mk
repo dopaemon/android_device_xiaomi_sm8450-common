@@ -12,6 +12,8 @@ ifneq ("$(wildcard vendor/cherish)","")
 ROM_VENDOR_PATH := cherish
 else ifneq ("$(wildcard vendor/voltage)","")
 ROM_VENDOR_PATH := voltage
+else ifneq ("$(wildcard vendor/infinity)","")
+ROM_VENDOR_PATH := infinity
 else
 ROM_VENDOR_PATH := lineage
 endif
@@ -225,7 +227,13 @@ VENDOR_SECURITY_PATCH := 2025-08-01
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-include device/$(ROM_VENDOR_PATH)/sepolicy/libperfmgr/sepolicy.mk
+ifeq ($(ROM_VENDOR_PATH),cherish)
+include device/cherish/sepolicy/libperfmgr/sepolicy.mk
+else ifeq ($(ROM_VENDOR_PATH),voltage)
+include device/voltage/sepolicy/libperfmgr/sepolicy.mk
+else
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+endif
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor

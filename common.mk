@@ -38,6 +38,8 @@ ifneq ("$(wildcard vendor/cherish)","")
 ROM_VENDOR_PATH := cherish
 else ifneq ("$(wildcard vendor/voltage)","")
 ROM_VENDOR_PATH := voltage
+else ifneq ("$(wildcard vendor/infinity)","")
+ROM_VENDOR_PATH := infinity
 else
 ROM_VENDOR_PATH := lineage
 endif
