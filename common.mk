@@ -33,8 +33,39 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
+# Set vendor name
+ifneq ("$(wildcard vendor/cherish)","")
+ROM_VENDOR_PATH := cherish
+else ifneq ("$(wildcard vendor/voltage)","")
+ROM_VENDOR_PATH := voltage
+else
+ROM_VENDOR_PATH := lineage
+endif
+
 # Sign
-$(call inherit-product, vendor/lineage-priv/keys/keys.mk)
+ifeq ($(ROM_VENDOR_PATH),voltage)
+    $(call inherit-product, vendor/voltage-priv/keys/keys.mk)
+else
+    $(call inherit-product, vendor/lineage-priv/keys/keys.mk)
+endif
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/xiaomi \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/qcom-caf/common/libqti-perfd-client \
+    vendor/qcom/opensource/usb/etc \
+    vendor/qcom/opensource/commonsys-intf/display
+
+ifeq ($(ROM_VENDOR_PATH),cherish)
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/cherish/interfaces/power-libperfmgr
+else
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/lineage/interfaces/power-libperfmgr
+endif
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -333,6 +364,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
 
+ifeq ($(ROM_VENDOR_PATH),cherish)
+    PRODUCT_PACKAGES += FrameworksResCherish
+else ifeq ($(ROM_VENDOR_PATH),voltage)
+    PRODUCT_PACKAGES += SettingsResVoltage
+endif
+
 # Partitions
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
@@ -387,16 +424,6 @@ $(foreach sku, taro diwali cape ukee, \
         frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.stepcounter.xml \
         frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.stepdetector.xml \
     ))
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    hardware/xiaomi \
-    hardware/google/interfaces \
-    hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
-    hardware/qcom-caf/common/libqti-perfd-client \
-    vendor/qcom/opensource/usb/etc
 
 # Telephony
 PRODUCT_PACKAGES += \

@@ -7,7 +7,25 @@
 # Inherit from the proprietary version
 include vendor/xiaomi/sm8450-common/BoardConfigVendor.mk
 
+# Set vendor name
+ifneq ("$(wildcard vendor/cherish)","")
+ROM_VENDOR_PATH := cherish
+else ifneq ("$(wildcard vendor/voltage)","")
+ROM_VENDOR_PATH := voltage
+else
+ROM_VENDOR_PATH := lineage
+endif
+
 COMMON_PATH := device/xiaomi/sm8450-common
+
+ifeq ($(ROM_VENDOR_PATH),cherish)
+# Build
+ALLOW_MISSING_DEPENDENCIES=true
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+endif
 
 # A/B
 AB_OTA_PARTITIONS += \
@@ -108,10 +126,17 @@ BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
-    mtdoops.fingerprint=$(LINEAGE_VERSION) \
     allow_file_spec_access \
     irqaffinity=0-3 \
     pelt=8
+
+ifeq ($(ROM_VENDOR_PATH),cherish)
+    BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(CHERISH_VERSION)
+else ifeq ($(ROM_VENDOR_PATH),voltage)
+    BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(VOLTAGE_VERSION)
+else ifeq ($(ROM_VENDOR_PATH),lineage)
+    BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(LINEAGE_VERSION)
+endif
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -200,7 +225,7 @@ VENDOR_SECURITY_PATCH := 2025-08-01
 
 # Sepolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+include device/$(ROM_VENDOR_PATH)/sepolicy/libperfmgr/sepolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
@@ -232,6 +257,11 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/dolby/configs/vintf/dolby_framework_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
 
+ifeq ($(ROM_VENDOR_PATH),cherish)
+    DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/cherish/config/device_framework_matrix.xml
+else ifeq ($(ROM_VENDOR_PATH),voltage)
+    DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(COMMON_PATH)/vintf/device_framework_matrix.xml
+endif
 
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/vintf/framework_manifest.xml
 
