@@ -22,13 +22,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 # Setup dalvik vm configs
-PRODUCT_VENDOR_PROPERTIES += \
-    dalvik.vm.heapstartsize?=16m \
-    dalvik.vm.heapgrowthlimit?=256m \
-    dalvik.vm.heapsize?=512m \
-    dalvik.vm.heaptargetutilization?=0.5 \
-    dalvik.vm.heapminfree?=8m \
-    dalvik.vm.heapmaxfree?=32m
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=24m \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heaptargetutilization=0.46 \
+    dalvik.vm.heapminfree=8m \
+    dalvik.vm.heapmaxfree=48m
 
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
