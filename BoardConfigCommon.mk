@@ -138,6 +138,8 @@ else ifeq ($(ROM_VENDOR_PATH),voltage)
     BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(VOLTAGE_VERSION)
 else ifeq ($(ROM_VENDOR_PATH),lineage)
     BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(LINEAGE_VERSION)
+else ifeq ($(ROM_VENDOR_PATH),infinity)
+    BOARD_KERNEL_CMDLINE += mtdoops.fingerprint=$(INFINITY_VERSION)
 endif
 
 BOARD_BOOTCONFIG := \
