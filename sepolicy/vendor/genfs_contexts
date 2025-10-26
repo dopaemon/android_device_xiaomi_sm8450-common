@@ -46,7 +46,6 @@ genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/w
 genfscon sysfs /devices/platform/soc/990000.i2c/i2c-2/2-004e/tcpc/type_c_port0/wakeup31 u:object_r:sysfs_wakeup:s0
 
 # Touchscreen
-genfscon sysfs /devices/platform/goodix_ts.0/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate u:object_r:vendor_sysfs_touch:s0
 
 # Torch control
