@@ -78,7 +78,6 @@ frpc-adsprpc.ko
 rdbg.ko
 lt9611uxc.ko
 msm_kgsl.ko
-zram.ko
 hdcp.ko
 qseecom-mod.ko
 wl2866d.ko
