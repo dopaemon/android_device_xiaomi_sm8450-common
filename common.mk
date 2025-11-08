@@ -57,17 +57,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/xiaomi \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/qcom-caf/common/libqti-perfd-client \
     vendor/qcom/opensource/usb/etc \
     vendor/qcom/opensource/commonsys-intf/display
-
-ifeq ($(ROM_VENDOR_PATH),cherish)
-PRODUCT_SOONG_NAMESPACES += \
-    hardware/cherish/interfaces/power-libperfmgr
-else
-PRODUCT_SOONG_NAMESPACES += \
-    hardware/lineage/interfaces/power-libperfmgr
-endif
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -382,11 +373,10 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.lineage-libperfmgr \
-    libqti-perfd-client
+    android.hardware.power-service-qti
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+    vendor/qcom/opensource/power/config/taro/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Powershare
 $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-battery/reverse_chg_mode)

@@ -225,14 +225,6 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Sepolicy
-include device/qcom/sepolicy_vndr/SEPolicy.mk
-ifeq ($(ROM_VENDOR_PATH),cherish)
-include device/cherish/sepolicy/libperfmgr/sepolicy.mk
-else ifeq ($(ROM_VENDOR_PATH),voltage)
-include device/voltage/sepolicy/libperfmgr/sepolicy.mk
-else
-include device/lineage/sepolicy/libperfmgr/sepolicy.mk
-endif
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
