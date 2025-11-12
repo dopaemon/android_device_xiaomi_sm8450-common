@@ -50,7 +50,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.i(TAG, "Received intent: " + intent.getAction());
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         switch (intent.getAction()) {
             case Intent.ACTION_LOCKED_BOOT_COMPLETED:
@@ -94,6 +93,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         RefreshUtils.startService(context);
 
         // Start DC Dimming Service
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
         FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "08 01" : "08 00");
     }
