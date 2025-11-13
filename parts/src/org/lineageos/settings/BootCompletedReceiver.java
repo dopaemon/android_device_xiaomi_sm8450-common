@@ -28,15 +28,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.content.SharedPreferences;
-import android.os.SystemProperties;
 import android.util.Log;
-import androidx.preference.PreferenceManager;
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.utils.FileUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
@@ -44,13 +40,10 @@ import org.lineageos.settings.refreshrate.RefreshUtils;
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
     private static final String TAG = "XiaomiParts";
-    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
-    private static final String DC_DIMMING_NODE = "/sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param";
 
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.i(TAG, "Received intent: " + intent.getAction());
-
         switch (intent.getAction()) {
             case Intent.ACTION_LOCKED_BOOT_COMPLETED:
                 handleLockedBootCompleted(context);
@@ -92,10 +85,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
 
-        // Start DC Dimming Service
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
-        FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "08 01" : "08 00");
     }
 
     private void overrideHdrTypes(Context context) {
