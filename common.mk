@@ -30,9 +30,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=8m \
     dalvik.vm.heapmaxfree=48m
 
-# Inherit WFD
-$(call inherit-product, device/qcom/wfd/device.mk)
-
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
