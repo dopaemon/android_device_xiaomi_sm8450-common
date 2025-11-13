@@ -23,7 +23,6 @@ android_app {
 
     static_libs: [
         "org.lineageos.settings.resources",
-	"parts.settings.resources"
     ],
 
     optimize: {
