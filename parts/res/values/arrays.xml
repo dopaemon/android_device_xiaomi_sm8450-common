@@ -183,6 +183,12 @@
         <item>439MHz</item>
         <item>515MHz</item>
         <item>580MHz</item>
+        <item>645MHz</item>
+        <item>710MHz</item>
+        <item>765MHz</item>
+        <item>815MHz</item>
+        <item>862MHz</item>
+        <item>900MHz</item>
     </string-array>
 
     <string-array name="gpu_frequency_values" translatable="false">
@@ -193,6 +199,12 @@
         <item>439000000</item>
         <item>515000000</item>
         <item>580000000</item>
+        <item>645000000</item>
+        <item>710000000</item>
+        <item>765000000</item>
+        <item>815000000</item>
+        <item>862000000</item>
+        <item>900000000</item>
         </string-array>
 
 <!-- CPU Little Cluster Frequencies -->
@@ -211,6 +223,8 @@
         <item>1555MHz</item>
         <item>1670MHz</item>
         <item>1804MHz</item>
+        <item>1920MHz</item>
+        <item>2016MHz</item>
     </string-array>
     <string-array name="cpu_little_freq_values" translatable="false">
         <item>300000</item>
@@ -227,6 +241,8 @@
         <item>1555200</item>
         <item>1670400</item>
         <item>1804800</item>
+        <item>1920000</item>
+        <item>2016000</item>
     </string-array>
 
 <!-- CPU Big Cluster Frequencies -->
@@ -247,7 +263,10 @@
         <item>2112MHz</item>
         <item>2227MHz</item>
         <item>2342MHz</item>
-        <item>2496MHz</item>
+        <item>2457MHz</item>
+        <item>2572MHz</item>
+        <item>2649MHz</item>
+        <item>2745MHz</item>
     </string-array>
     <string-array name="cpu_big_freq_values" translatable="false">
         <item>633600</item>
@@ -266,7 +285,10 @@
         <item>2112000</item>
         <item>2227200</item>
         <item>2342400</item>
-        <item>2496000</item>
+        <item>2457600</item>
+        <item>2572800</item>
+        <item>2649600</item>
+        <item>2745600</item>
     </string-array>
  
     <!-- CPU Prime Cluster Frequencies -->
@@ -290,6 +312,7 @@
         <item>2707MHz</item>
         <item>2822MHz</item>
         <item>2918MHz</item>
+        <item>2995MHz</item>
     </string-array>
     <string-array name="cpu_prime_freq_values" translatable="false">
         <item>787200</item>
@@ -311,6 +334,7 @@
         <item>2707200</item>
         <item>2822400</item>
         <item>2918400</item>
+        <item>2995200</item>
     </string-array>
  
     <!-- CPU Governor Options (for all clusters) -->
