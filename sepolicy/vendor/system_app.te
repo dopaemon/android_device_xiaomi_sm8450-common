@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # allow system apps to read battery status
 r_dir_file(system_app, sysfs_battery_supply)
 
@@ -7,9 +6,3 @@ allow system_app sysfs_thermal:file rw_file_perms;
 
 allow system_app hal_mlipay_hwservice:hwservice_manager find;
 binder_call(system_app, hal_mlipay_default)
-
-allow system_app sysfs_thermal:file write;
-allow system_app sysfs_thermal:file rw_file_perms;
-=======
-allow system_app sysfs_thermal:file write;
->>>>>>> a9a55ea (sm8450-common: parts: Partially import parts from sm8350-common)

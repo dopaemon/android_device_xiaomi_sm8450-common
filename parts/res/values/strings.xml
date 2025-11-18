@@ -127,8 +127,6 @@
     <string name="powerprofile_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
     <string name="perf_mode_title">High Performance Mode</string>
     <string name="perf_mode_notification">High Performance Mode is now activated for enhanced performance.</string>
-    <string name="gaming_mode_title">Game Boost</string>
-    <string name="gaming_mode_notification">Game Boost Mode is now activated for optimal gaming performance.</string>
     <string name="power_profile_footer_summary">Note: Higher frequencies are available only in Game Boost mode.</string>
 
     <!-- Powertools Main Title -->
