@@ -171,10 +171,7 @@ PRODUCT_COPY_FILES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
     DSPVolumeSynchronizer \
-=======
->>>>>>> a9a55ea (sm8450-common: parts: Partially import parts from sm8350-common)
     XiaomiParts
 
 # Display
