@@ -100,7 +100,7 @@ public class ThermalSettingsFragment extends PreferenceFragment
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mAppsRecyclerView = view.findViewById(R.id.thermal_rv_view);
+        mAppsRecyclerView = view.findViewById(android.R.id.list);
         mAppsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAppsRecyclerView.setAdapter(mAllPackagesAdapter);
         mAppsRecyclerView.setVisibility(mThermalUtils.isEnabled() ? View.VISIBLE : View.GONE);
