@@ -25,11 +25,11 @@
     <string name="tile_on">On</string>
     <string name="tile_off">Off</string>
  
-    <!-- Thermal Profiles -->
+    <!-- Thermal profiles -->
     <string name="thermal_title">Thermal profiles</string>
-    <string name="thermal_summary">Per-app thermal profile configuration</string>
-    <string name="thermal_default">Default</string>
-    <string name="thermal_benchmark">Benchmark</string>
+    <string name="thermal_summary">Adjust per-app thermal profiles for optimum performance</string>
+    <string name="thermal_default">No optimization</string>
+    <string name="thermal_benchmark">Performance</string>
     <string name="thermal_browser">Browser</string>
     <string name="thermal_camera">Camera</string>
     <string name="thermal_dialer">Dialer</string>
@@ -39,15 +39,11 @@
     <string name="thermal_video">Video</string>
 
     <!-- Thermal Tile Strings -->
-    <string name="thermal_tile_label">Thermal Profile</string>
+    <string name="thermal_tile_label">Thermal Mode</string>
     <string name="thermal_mode_default">Default Mode</string>
     <string name="thermal_mode_performance">Performance Mode</string>
     <string name="thermal_mode_battery_saver">Battery Saver Mode</string>
     <string name="thermal_mode_gaming">Gaming Mode</string>
-    <string name="thermal_mode_unknown">Unknown Mode</string>
-    <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
-    <string name="perf_mode_title">High Performance Mode</string>
-    <string name="perf_mode_notification">High Performance Mode is now activated for enhanced performance.</string>
 
     <!-- Per-app refresh rate -->
     <string name="refresh_title">Per-app refresh rate</string>
@@ -102,14 +98,5 @@
     <string name="auto_hbm_enable_time_title">Enable time</string>
     <string name="auto_hbm_enable_time_summary">Duration in seconds that the light threshold must be continuously met to activate HBM</string>
     <string name="auto_hbm_disable_time_title">Disable time</string>
-    <string name="auto_hbm_disable_time_summary">Duration in seconds for which HBM is deactivated if the light threshold falls below the set level</string>
-
-    <!-- GameBar Overlay -->
-    <string name="game_bar_title">GameBar</string>
-    <string name="game_bar_summary">Enable the system overlay (FPS, Temp, etc.)</string>
-    <string name="overlay_permission_required">Overlay permission is required</string>
-    <string name="overlay_permission_granted">Overlay permission granted</string>
-    <string name="overlay_permission_denied">Overlay permission denied</string>
-    <string name="game_bar_tile_label">GameBar</string>
-    <string name="game_bar_tile_description">Toggle the game overlay</string>
+    <string name="auto_hbm_disable_time_summary">Duration in seconds for which HBM is deactivated if the light threshold falls below the set level</string>    
 </resources>

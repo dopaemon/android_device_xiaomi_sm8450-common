@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 The LineageOS Project
+ * Copyright (C) 2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@ package org.lineageos.settings.thermal;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.UserHandle;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -30,6 +31,7 @@ import android.telecom.DefaultDialerManager;
 import android.view.Display;
 import android.view.Surface;
 import android.view.WindowManager;
+
 import androidx.preference.PreferenceManager;
 
 import com.android.settingslib.applications.AppUtils;
@@ -59,7 +61,7 @@ public final class ThermalUtils {
         STATE_BROWSER, "11",
         STATE_CAMERA, "12",
         STATE_DIALER, "8",
-        STATE_GAMING, "10",
+        STATE_GAMING, "13",
         STATE_NAVIGATION, "19",
         STATE_STREAMING, "4",
         STATE_VIDEO, "21"
@@ -87,9 +89,6 @@ public final class ThermalUtils {
     protected ThermalUtils(Context context) {
         mContext = context;
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        WindowManager mWindowManager = context.getSystemService(WindowManager.class);
-        mDisplay = mWindowManager.getDefaultDisplay();
     }
 
     public static void startService(Context context) {
@@ -159,7 +158,6 @@ public final class ThermalUtils {
         String value = getValue();
         String[] modes = value.split(":");
         int state = STATE_DEFAULT;
-
         if (modes[0].contains(packageName + ",")) {
             state = STATE_BENCHMARK;
         } else if (modes[1].contains(packageName + ",")) {
