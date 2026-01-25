@@ -14,25 +14,23 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.powertools;
+package org.lineageos.settings.gamebar;
 
 import android.os.Bundle;
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 import org.lineageos.settings.R;
 
-public class PowertoolsActivity extends CollapsingToolbarBaseActivity {
+public class GameBarAppSelectorActivity extends CollapsingToolbarBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_powertools);
+        setContentView(R.layout.activity_game_bar_app_selector);
+        setTitle("Select Apps for GameBar");
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.powertools_fragment_container,
-                             new PowertoolsSettingsFragment(),
-                             "powertools")
-                    .commit();
+                .replace(R.id.content_frame, new GameBarAppSelectorFragment())
+                .commit();
         }
     }
 }
-

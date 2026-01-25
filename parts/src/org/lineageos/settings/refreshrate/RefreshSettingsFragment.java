@@ -34,10 +34,6 @@ import android.widget.ListView;
 import android.widget.SectionIndexer;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.EditText;
-import android.widget.Button;
-import android.text.TextWatcher;
-import android.text.Editable;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceFragment;
@@ -66,10 +62,6 @@ public class RefreshSettingsFragment extends PreferenceFragment
 
     private RefreshUtils mRefreshUtils;
     private RecyclerView mAppsRecyclerView;
-    private EditText mSearchBar;
-    private Button mSaveButton;
-    private Button mResetButton;
-    private String mSearchQuery = "";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -99,33 +91,9 @@ public class RefreshSettingsFragment extends PreferenceFragment
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mSearchBar = view.findViewById(R.id.search_bar);
-        mSaveButton = view.findViewById(R.id.save_button);
-        mResetButton = view.findViewById(R.id.reset_button);
         mAppsRecyclerView = view.findViewById(R.id.refresh_rv_view);
         mAppsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAppsRecyclerView.setAdapter(mAllPackagesAdapter);
-
-        mSearchBar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mSearchQuery = s.toString().toLowerCase();
-                mAllPackagesAdapter.filter(mSearchQuery);
-            }
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
-
-        mSaveButton.setOnClickListener(v -> {
-            // Save is implicit in SharedPreferences, but you can show a toast or feedback
-            // Toast.makeText(getActivity(), "Configs saved!", Toast.LENGTH_SHORT).show();
-        });
-        mResetButton.setOnClickListener(v -> {
-            mRefreshUtils.clearAllPerAppSettings(); // Clear all per-app settings
-            rebuild();
-        });
     }
 
 
@@ -232,10 +200,6 @@ public class RefreshSettingsFragment extends PreferenceFragment
                 return R.drawable.ic_refresh_120;
             case RefreshUtils.STATE_LAND:
                 return R.drawable.ic_refresh_60;
-            case RefreshUtils.STATE_90:
-                return R.drawable.ic_refresh_90;
-            case RefreshUtils.STATE_90_LAND:
-                return R.drawable.ic_refresh_90;
             case RefreshUtils.STATE_DEFAULT:
             default:
                 return R.drawable.ic_refresh_default;
@@ -244,18 +208,19 @@ public class RefreshSettingsFragment extends PreferenceFragment
 
     private class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
-        private TextView packageName;
         private Spinner mode;
         private ImageView icon;
         private View rootView;
+        private ImageView stateIcon;
 
         private ViewHolder(View view) {
             super(view);
             this.title = view.findViewById(R.id.app_name);
-            this.packageName = view.findViewById(R.id.app_package);
             this.mode = view.findViewById(R.id.app_mode);
             this.icon = view.findViewById(R.id.app_icon);
+            this.stateIcon = view.findViewById(R.id.state);
             this.rootView = view;
+
             view.setTag(this);
         }
     }
@@ -267,9 +232,7 @@ public class RefreshSettingsFragment extends PreferenceFragment
                 R.string.refresh_default,
                 R.string.refresh_standard,
                 R.string.refresh_extreme,
-                R.string.refresh_land,
-                R.string.refresh_90,
-                R.string.refresh_90_land
+                R.string.refresh_land
         };
 
         private ModeAdapter(Context context) {
@@ -312,7 +275,6 @@ public class RefreshSettingsFragment extends PreferenceFragment
             implements AdapterView.OnItemSelectedListener, SectionIndexer {
 
         private List<ApplicationsState.AppEntry> mEntries = new ArrayList<>();
-        private List<ApplicationsState.AppEntry> mFilteredEntries = new ArrayList<>();
         private String[] mSections;
         private int[] mPositions;
 
@@ -320,63 +282,46 @@ public class RefreshSettingsFragment extends PreferenceFragment
             mActivityFilter = new ActivityFilter(context.getPackageManager());
         }
 
-        public void filter(String query) {
-            if (TextUtils.isEmpty(query)) {
-                mFilteredEntries = new ArrayList<>(mEntries);
-            } else {
-                List<ApplicationsState.AppEntry> filtered = new ArrayList<>();
-                for (ApplicationsState.AppEntry entry : mEntries) {
-                    String label = entry.label != null ? entry.label.toLowerCase() : "";
-                    String pkg = entry.info.packageName != null ? entry.info.packageName.toLowerCase() : "";
-                    if (label.contains(query) || pkg.contains(query)) {
-                        filtered.add(entry);
-                    }
-                }
-                mFilteredEntries = filtered;
-            }
-            notifyDataSetChanged();
-        }
-
         @Override
         public int getItemCount() {
-            return mFilteredEntries.size();
+            return mEntries.size();
         }
 
         @Override
         public long getItemId(int position) {
-            return mFilteredEntries.get(position).id;
+            return mEntries.get(position).id;
         }
-
-        @NonNull
+@NonNull
         @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new ViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.refresh_list_item, parent, false));
         }
 
-        @Override
+ 	@Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             Context context = holder.itemView.getContext();
-            ApplicationsState.AppEntry entry = mFilteredEntries.get(position);
+
+            ApplicationsState.AppEntry entry = mEntries.get(position);
+
             if (entry == null) {
                 return;
             }
             holder.mode.setAdapter(new ModeAdapter(context));
             holder.mode.setOnItemSelectedListener(this);
             holder.title.setText(entry.label);
-            holder.packageName.setText(entry.info.packageName);
             holder.title.setOnClickListener(v -> holder.mode.performClick());
             mApplicationsState.ensureIcon(entry);
             holder.icon.setImageDrawable(entry.icon);
             int packageState = mRefreshUtils.getStateForPackage(entry.info.packageName);
             holder.mode.setSelection(packageState, false);
             holder.mode.setTag(entry);
+            holder.stateIcon.setImageResource(getStateDrawable(packageState));
         }
 
         private void setEntries(List<ApplicationsState.AppEntry> entries,
                 List<String> sections, List<Integer> positions) {
             mEntries = entries;
-            mFilteredEntries = new ArrayList<>(entries);
             mSections = sections.toArray(new String[sections.size()]);
             mPositions = new int[positions.size()];
             for (int i = 0; i < positions.size(); i++) {
@@ -384,6 +329,7 @@ public class RefreshSettingsFragment extends PreferenceFragment
             }
             notifyDataSetChanged();
         }
+
 
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

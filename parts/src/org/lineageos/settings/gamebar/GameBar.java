@@ -58,13 +58,6 @@ public class GameBar {
         }
         return sInstance;
     }
-    
-    public static synchronized void destroyInstance() {
-        if (sInstance != null) {
-            sInstance.cleanup();
-            sInstance = null;
-        }
-    }
 
     private static final String FPS_PATH          = "/sys/class/drm/sde-crtc-0/measured_fps";
     private static final String BATTERY_TEMP_PATH = "/sys/class/power_supply/battery/temp";
@@ -116,12 +109,6 @@ public class GameBar {
     private GradientDrawable mBgDrawable;
 
     private int mItemSpacingDp = 8;
-
-    private boolean mShowRamSpeed = false;
-    private boolean mShowRamTemp = false;
-
-    // Track if layout needs refresh
-    private boolean mLayoutChanged = false;
 
     private final Runnable mLongPressRunnable = new Runnable() {
         @Override
@@ -197,9 +184,6 @@ public class GameBar {
         mShowGpuUsage    = prefs.getBoolean("game_bar_gpu_usage_enable", true);
         mShowGpuClock    = prefs.getBoolean("game_bar_gpu_clock_enable", false);
         mShowGpuTemp     = prefs.getBoolean("game_bar_gpu_temp_enable", false);
-
-        mShowRamSpeed    = prefs.getBoolean("game_bar_ram_speed_enable", false);
-        mShowRamTemp     = prefs.getBoolean("game_bar_ram_temp_enable", false);
 
         mDoubleTapCaptureEnabled = prefs.getBoolean("game_bar_doubletap_capture", true);
         mSingleTapToggleEnabled  = prefs.getBoolean("game_bar_single_tap_toggle", true);
@@ -331,50 +315,23 @@ public class GameBar {
 
     public void hide() {
         if (!mIsShowing) return;
-        stopUpdates();
-        try {
-            if (mOverlayView != null && mWindowManager != null) {
-                mWindowManager.removeView(mOverlayView);
-                mOverlayView = null;
-            }
-        } catch (Exception e) {
-            // View might already be removed
+        mHandler.removeCallbacksAndMessages(null);
+        if (mOverlayView != null) {
+            mWindowManager.removeView(mOverlayView);
+            mOverlayView = null;
         }
-        mRootLayout = null;
-        mLayoutChanged = true; // Mark layout as changed
         mIsShowing = false;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             GameBarFpsMeter.getInstance(mContext).stop();
         }
     }
-    
-    private void stopUpdates() {
-        if (mHandler != null) {
-            mHandler.removeCallbacks(mUpdateRunnable);
-            mHandler.removeCallbacks(mLongPressRunnable);
-            mHandler.removeCallbacksAndMessages(null);
-        }
-    }
-    
-    public void cleanup() {
-        hide();
-        if (mHandler != null) {
-            mHandler.removeCallbacksAndMessages(null);
-        }
-        mGestureDetector = null;
-        mBgDrawable = null;
-        mLayoutParams = null;
-    }
 
     private void updateStats() {
         if (!mIsShowing || mRootLayout == null) return;
 
-        // Always clear views to prevent duplication
         mRootLayout.removeAllViews();
-        mLayoutChanged = false;
 
-        // Create fresh views each time
-        List<View> statViews = new ArrayList<>(10);
+        List<View> statViews = new ArrayList<>();
 
         // 1) FPS
         float fpsVal = GameBarFpsMeter.getInstance(mContext).getFps();
@@ -425,18 +382,6 @@ public class GameBar {
         if (mShowRam) {
             ramStr = GameBarMemInfo.getRamUsage();
             statViews.add(createStatLine("RAM", "N/A".equals(ramStr) ? "N/A" : ramStr + " MB"));
-        }
-
-        // 6.1) RAM speed
-        if (mShowRamSpeed) {
-            String ramSpeedStr = GameBarMemInfo.getRamSpeed();
-            statViews.add(createStatLine("RAM Freq", ramSpeedStr));
-        }
-
-        // 6.2) RAM temp
-        if (mShowRamTemp) {
-            String ramTempStr = GameBarMemInfo.getRamTemp();
-            statViews.add(createStatLine("RAM Temp", ramTempStr));
         }
 
         // 7) GPU usage
@@ -498,12 +443,8 @@ public class GameBar {
             );
         }
 
-        if (mLayoutParams != null && mOverlayView != null && mWindowManager != null) {
-            try {
-                mWindowManager.updateViewLayout(mOverlayView, mLayoutParams);
-            } catch (Exception e) {
-                // View might be in invalid state, ignore
-            }
+        if (mLayoutParams != null) {
+            mWindowManager.updateViewLayout(mOverlayView, mLayoutParams);
         }
     }
 
@@ -633,9 +574,6 @@ public class GameBar {
     public void setShowGpuUsage(boolean show)    { mShowGpuUsage = show; }
     public void setShowGpuClock(boolean show)    { mShowGpuClock = show; }
     public void setShowGpuTemp(boolean show)     { mShowGpuTemp = show; }
-
-    public void setShowRamSpeed(boolean show) { mShowRamSpeed = show; }
-    public void setShowRamTemp(boolean show) { mShowRamTemp = show; }
 
     public void updateTextSize(int sp) {
         mTextSizeSp = sp;

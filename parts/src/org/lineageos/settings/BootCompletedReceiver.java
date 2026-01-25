@@ -33,11 +33,9 @@ import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.powertools.PowerProfileTileService;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
-import org.lineageos.settings.soundcontrol.SoundControlUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final boolean DEBUG = false;
@@ -72,7 +70,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     private void handleBootCompleted(Context context) {
         if (DEBUG) Log.i(TAG, "Handling boot completed.");
-        SoundControlUtils.applyAll(context);
         // Add additional boot-completed actions if needed
     }
 
@@ -86,8 +83,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         ThermalUtils.getInstance(context).startService();
         context.startServiceAsUser(new Intent(context, ThermalTileService.class), UserHandle.CURRENT);
 
-        // Start Power Profile Tile Service
-        context.startServiceAsUser(new Intent(context, PowerProfileTileService.class), UserHandle.CURRENT);
+        // Start Refresh Rate Service
+        RefreshUtils.startService(context);
+
     }
 
     private void overrideHdrTypes(Context context) {

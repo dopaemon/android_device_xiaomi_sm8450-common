@@ -83,7 +83,7 @@
         <service android:name=".doze.DozeService"
                  android:permission="XiaomiDozeService">
         </service>
-
+	    
         <activity
             android:name=".thermal.ThermalSettingsActivity"
             android:label="@string/thermal_title"
@@ -104,8 +104,8 @@
             android:name=".thermal.ThermalService"
             android:permission="ThermalService">
         </service>
-
-
+        
+        
         <service
             android:name=".thermal.ThermalTileService"
             android:label="@string/thermal_tile_label"
@@ -119,7 +119,7 @@
                 android:name="android.service.quicksettings.TOGGLEABLE_TILE"
                 android:value="true" />
         </service>
-
+	    
         <activity
             android:name=".speaker.ClearSpeakerActivity" 
             android:label="@string/clear_speaker_title"
@@ -263,6 +263,10 @@
                 android:resource="@string/game_bar_summary" />
         </activity>
 
+        <!-- GameBar AppSelector -->
+        <activity android:name=".gamebar.GameBarAppSelectorActivity" />
+        <activity android:name=".gamebar.GameBarAppRemoverActivity" />
+
         <!-- GameBar Overlay Tile Service -->
         <service
             android:name=".gamebar.GameBarTileService"
@@ -283,11 +287,6 @@
             android:name=".gamebar.GameBarMonitorService"
             android:exported="false" />
 
-        <activity
-            android:name=".gamebar.GameBarPerAppConfigActivity"
-            android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase" />    
-
         <!-- GameBar BootReceiver -->
         <receiver
             android:name=".gamebar.GameBarBootReceiver"
@@ -300,66 +299,5 @@
                 <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
         </receiver>
-
-        <!-- Powertools Activity -->
-        <activity
-            android:name=".powertools.PowertoolsActivity"
-            android:label="@string/Powertools_title"
-            android:theme="@style/Theme.SubSettingsBase"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.battery" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/Powertools_summary" />
-        </activity>
-
-        <!-- Powertools Quick Settings Tile Service -->
-        <service
-            android:name=".powertools.PowerProfileTileService"
-            android:label="@string/powerprofile_tile_label"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
-            android:icon="@drawable/ic_thermal_balance"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
-                android:value="true" />
-        </service>
-
-        <!-- Powertool BootReceiver -->
-        <receiver android:name=".powertools.PowertoolBootReceiver"
-            android:exported="true"
-            android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Sound Control -->
-        <activity
-                android:name=".soundcontrol.SoundControlSettingsActivity"
-                android:label="@string/sound_control_title"
-                android:exported="true"
-                android:theme="@style/Theme.SubSettingsBase">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                    android:name="com.android.settings.category"
-                    android:value="com.android.settings.category.ia.sound" />
-            <meta-data
-                    android:name="com.android.settings.summary"
-                    android:resource="@string/sound_control_title" />
-        </activity>
     </application>
 </manifest>

@@ -50,18 +50,6 @@
             android:defaultValue="false" />
 
         <SwitchPreferenceCompat
-            android:key="game_bar_ram_speed_enable"
-            android:title="RAM Frequency"
-            android:summary="Show current RAM frequency(bus) in GHz"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
-            android:key="game_bar_ram_temp_enable"
-            android:title="RAM Temperature"
-            android:summary="Show current RAM temperature"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
             android:key="game_bar_gpu_usage_enable"
             android:title="GPU Usage"
             android:summary="Show GPU usage percentage"
@@ -243,8 +231,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="Per-App GameBar">
-
+        android:title="Auto Enable GameBar">
         <SwitchPreferenceCompat
             android:key="game_bar_auto_enable"
             android:title="Auto-Enable GameBar for Selected Apps"
@@ -252,9 +239,14 @@
             android:defaultValue="false" />
 
         <Preference
-            android:key="game_bar_per_app_config"
-            android:title="Configure Apps"
-            android:summary="Choose which apps will auto-enable GameBar" />
+            android:key="game_bar_app_selector"
+            android:title="Select Apps"
+            android:summary="Add apps that should auto-enable GameBar" />
+
+        <Preference
+            android:key="game_bar_app_remover"
+            android:title="Remove Selected Apps"
+            android:summary="Remove apps from the auto-enable list" />
     </PreferenceCategory>
 
 </PreferenceScreen>

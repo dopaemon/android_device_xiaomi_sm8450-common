@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 kenway214
+ * Copyright (C) 2024 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.gamebar;
+package org.lineageos.settings.saturation;
 
 import android.os.Bundle;
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import org.lineageos.settings.R;
 
-public class GameBarPerAppConfigActivity extends CollapsingToolbarBaseActivity {
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+
+public class SaturationActivity extends CollapsingToolbarBaseActivity {
+
+    private static final String TAG = "Saturation";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_bar_app_selector);
-        setTitle("Configure Per-App GameBar");
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, new GameBarPerAppConfigFragment())
-                .commit();
-        }
+
+        getSupportFragmentManager().beginTransaction().replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                new SaturationFragment(), TAG).commit();
     }
-} 
+}
