@@ -68,11 +68,6 @@ public class ThermalSettingsFragment extends PreferenceFragment
     private MainSwitchPreference mMainSwitch;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.thermal_layout, container, false);
-    }
-
-    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.thermal_settings);
 
@@ -100,7 +95,7 @@ public class ThermalSettingsFragment extends PreferenceFragment
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mAppsRecyclerView = view.findViewById(android.R.id.list);
+        mAppsRecyclerView = view.findViewById(R.id.thermal_rv_view);
         mAppsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAppsRecyclerView.setAdapter(mAllPackagesAdapter);
         mAppsRecyclerView.setVisibility(mThermalUtils.isEnabled() ? View.VISIBLE : View.GONE);
