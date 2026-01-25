@@ -2,4 +2,5 @@
 r_dir_file(system_app, sysfs_battery_supply)
 
 allow system_app hal_mlipay_hwservice:hwservice_manager find;
+
 binder_call(system_app, hal_mlipay_default)
