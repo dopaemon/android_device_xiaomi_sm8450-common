@@ -4,6 +4,9 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+soong_namespace {
+}
+
 install_symlink {
     name: "firmware_WCNSS_qcom_cfg.ini_symlink",
     vendor: true,
