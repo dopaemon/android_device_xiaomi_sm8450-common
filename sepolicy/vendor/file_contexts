@@ -61,7 +61,9 @@
 /vendor/bin/ssgqmigd64 u:object_r:vendor_ssgqmigd_exec:s0
 
 # Secure Element
+ifdef(`aospa_mayfly_qcom_ese_policy', `', `
 /(vendor|system/vendor)/bin/hw/vendor\.qti\.esepowermanager@1\.1-service u:object_r:vendor_hal_esepowermanager_qti_exec:s0
+')
 
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0

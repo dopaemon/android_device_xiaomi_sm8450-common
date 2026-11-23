@@ -25,6 +25,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+ifdef(`aospa_mayfly_qcom_ese_policy', `', `
 type vendor_hal_esepowermanager_hwservice, hwservice_manager_type, protected_hwservice;
 
 type vendor_hal_esepowermanager_qti, domain;
@@ -63,3 +64,4 @@ allow vendor_hal_esepowermanager_qti vendor_dmabuf_qseecom_heap_device:chr_file 
 
 # Allow esepowermanager HAL to interact with NFC service
 hal_client_domain(vendor_hal_esepowermanager_qti, hal_nfc)
+')
