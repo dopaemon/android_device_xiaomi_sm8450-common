@@ -395,9 +395,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     qcrilNrDb_vendor
 
+ifeq ($(TARGET_PRODUCT),aospa_mayfly)
+# AOSPA provides telephony-ext on the boot class path.
+PRODUCT_BOOT_JARS_EXTRA += xiaomi-telephony-stub
+else
 PRODUCT_BOOT_JARS += \
     telephony-ext \
     xiaomi-telephony-stub
+endif
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
