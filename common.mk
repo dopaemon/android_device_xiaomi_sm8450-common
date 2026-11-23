@@ -186,10 +186,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
 # GPS
+PRODUCT_PACKAGES += android.hardware.gnss@2.1-impl-qti:64
+
+ifeq ($(TARGET_PRODUCT),aospa_mayfly)
+PRODUCT_PACKAGES += android.hardware.gnss@2.1-service-qti
+else
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1-impl-qti:64 \
     android.hardware.gnss-aidl-impl-qti:64 \
     android.hardware.gnss-aidl-service-qti
+endif
 
 PRODUCT_PACKAGES += \
     libbatching:64 \

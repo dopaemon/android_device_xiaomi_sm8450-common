@@ -179,7 +179,10 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml
 
+# AOSPA's Qualcomm framework manifest declares QCC already.
+ifneq ($(TARGET_PRODUCT),aospa_mayfly)
 DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/vintf/framework_manifest.xml
+endif
 
 # Verified Boot
 BOOT_SECURITY_PATCH := 2026-07-05
